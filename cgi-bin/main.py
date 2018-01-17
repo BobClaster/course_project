@@ -73,7 +73,6 @@ for article in articles:
     out += "<td>" + str(article[3]) + "</td>"
     out += "<td style='width: 100px;'>"
     out += "<a href='/cgi-bin/edit_operator.py?id=" + str(article[0]) + "&operator=" + article[1] + "&example=" + article[2] + "&desc=" + article[3] + "'><img src='../html/img/edit.png' style='width: 25px; padding: 4px;'></a>"
-    out += "<a href=''><img src='../html/img/copy.png' style='width: 25px; padding: 4px;'></a>"
     out += "<a href='?delete=" + str(article[0]) + "' ><img src='../html/img/delete.ico'  style='width: 25px; padding: 4px;'></a>"
     out += "</td>"
     out += '</tr>'

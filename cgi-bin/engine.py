@@ -11,11 +11,14 @@ class DataBase:
     def __init__(self):
         self.name_db = 'db_for_php'
         self.__connect_to_db(self.name_db)
-        # print("\n"+str(self.__create_table_in_db())+"\n")
+        try:
+            self.__create_table_in_db()
+        except:
+            pass
         self.__close_db()
 
     def __connect_to_db(self, db_name):
-        self.conn = sqlite3.connect(os.path.join(BASE_DIR, db_name))
+        self.conn = sqlite3.connect(db_name)
         self.cursor_db = self.conn.cursor()
 
     def __create_table_in_db(self):
