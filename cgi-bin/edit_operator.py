@@ -8,9 +8,9 @@ import os
 import re
 
 
-from engine import Session
+from engine import DataBase
 
-wall = Session()
+wall = DataBase()
 
 ##########################################################################
 ##                                FORMS                                 ##
@@ -49,7 +49,7 @@ change_desc = html.escape(change_desc)
 
 
 if id != '' and change_operator != '' and change_example != '' and change_desc != '':
-    notific = wall.edit_articles(id, change_operator, change_example, change_desc)
+    notific = wall.edit_article(id, change_operator, change_example, change_desc)
     if notific == 0:
         notific = "Ви успішно змінили даний запис."
     else:

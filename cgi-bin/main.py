@@ -8,9 +8,9 @@ import os
 import re
 import urllib.request as urllib2
 
-from engine import Session
+from engine import DataBase
 
-wall = Session()
+wall = DataBase()
 
 notific = ''
 header = '...'
@@ -25,7 +25,7 @@ search = form.getfirst("search", "")
 search = html.escape(search)
 
 if delete != '':
-    wall.del_articles(int(delete))
+    wall.delete_article(int(delete))
     articles = wall.get_all_articles()
 
 elif search != '':
@@ -58,7 +58,7 @@ out ="""
         <table>
         
         <tr>
-            <td><h3>ID</h3></td>
+            <!--<td><h3>ID</h3></td>-->
             <td><h3>Оператор</h3></td>
             <td><h3>Приклад</h3></td>
             <td><h3>Опис</h3></td>
@@ -67,7 +67,7 @@ out ="""
         """
 for article in articles:
     out += '<tr>'
-    out += "<td>" + str(article[0]) + "</td>"
+#    out += "<td>" + str(article[0]) + "</td>"
     out += "<td>" + str(article[1]) + "</td>"
     out += "<td>" + str(article[2]) + "</td>"
     out += "<td>" + str(article[3]) + "</td>"

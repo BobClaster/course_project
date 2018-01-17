@@ -145,27 +145,3 @@ class DataBase:
                       AND oper.id = ex.id AND ex.id = descr.id'''.format(query, query, query)
         self.cursor_db.execute(sql_stmt)
         return self.cursor_db.fetchall()
-
-
-
-class Session:
-    def __init__(self):
-        self.db = DataBase() 
-
-    def get_all_articles(self,):
-        return self.db.get_all_articles()
-
-    def get_single_article(self, id):
-        return self.db.get_article(id)
-    
-    def add_articles(self, operator, text_for_example, text_for_description):
-        return self.db.add_article(operator, text_for_example, text_for_description)
-
-    def edit_articles(self, id, operator, text_for_example, text_for_description):
-        return self.db.edit_article(id, operator, text_for_example, text_for_description)
-    
-    def del_articles(self, id):
-        self.db.delete_article(id)
-
-    def search_operators(self, query):
-        return self.db.search_operators(query)

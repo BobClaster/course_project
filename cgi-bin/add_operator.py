@@ -8,9 +8,9 @@ import os
 import re
 
 
-from engine import Session
+from engine import DataBase
 
-wall = Session()
+wall = DataBase()
 
 ##########################################################################
 ##                                FORMS                                 ##
@@ -35,7 +35,7 @@ add_desc = html.escape(add_desc)
 
 
 if add_operator != '' and add_example != '' and add_desc != '':
-    notific = wall.add_articles(add_operator, add_example, add_desc)
+    notific = wall.add_article(add_operator, add_example, add_desc)
     if notific == 0:
         notific = "Оператор успішно додано"
     else:
